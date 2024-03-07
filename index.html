@@ -1,8 +1,29 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>Ivan</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar sesión</title>
+    
+    <!--diseño-->
+    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet"> 
 </head>
 <body>
-<h1>Hola</h1>
+    <div class="contenido">
+        <h1>Iniciar sesion</h1>
+        <form >
+            <div class="usuario">
+                <i class="fa-solid fa-user"></i>
+                <input type="text" class="usuario" placeholder="Ingresa tu usuario" required />
+            </div>
+            <div class="contraseña">
+                <i class="fa-solid fa-lock"></i>
+                <input type="password" class="contraseña" placeholder="Ingresa tu contraseña" required />
+            </div>
+            <input  type="submit" value="Iniciar sesión" class="iniciar_sesion"/>
+        </form>
+    </div>
 </body>
 </html>

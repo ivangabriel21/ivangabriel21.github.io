@@ -1,0 +1,70 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Nunito', sans-serif;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background:  #1abc9c;
+    height: 100vb;
+}
+
+.contenido{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    width: 400px;
+    border-radius: 10px;
+    box-shadow: 10px 10px 10px rgba(0,0,0,0.05);   
+}
+.contenido form{
+    box-sizing: border-box;
+    padding: 0 40px;
+}
+.contenido h1{
+    text-align: center;
+    padding: 20px;
+    border-bottom: solid 1px lightgrey;
+}
+
+.contenido form{
+    text-align: center;
+    padding-top: 40px;
+    
+}
+.usuario{
+    margin-bottom: 10px;
+}
+.usuario i{
+    color: #1abc9c;
+}
+.contraseña{
+    margin-bottom: 10px;
+}
+.contraseña i{
+    color: #1abc9c;
+}
+.contenido form input{
+    height: 30px;
+    width: 80%;
+}
+
+.iniciar_sesion{
+    background-color: #1abc9c;
+    border: none;
+    cursor: pointer;
+    font-size: large;
+    font-weight: bold;
+    color: white;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.iniciar_sesion:hover{
+    background-color:#117a65;
+    transition: 150ms;
+}
