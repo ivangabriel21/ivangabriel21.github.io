@@ -1,80 +1,94 @@
 var canvas;
 var ctx;
 var dinosaurio;
-var arbol= [{}];
+var arbol = [{}];
 var PisoX;
 var PisoY;
-var imgActual=0,ControlCambioImagen=0;
-var nubes1,nubes2;
-var BoolSaltar=false;
+var imgActual = 0,
+  ControlCambioImagen = 0;
+var nubes1, nubes2;
+var BoolSaltar = false;
 var movSalto;
-var velocidadJuego=6;
-var CrearSigArbol=true;
-var ArbolesSaltados=0;
+var velocidadJuego = 6;
+var CrearSigArbol = true;
+var ArbolesSaltados = 0;
 var puntos;
-var CorrerJuego=true;
-window.addEventListener("load",Inicio);
-function Inicio(){
-	canvas = document.getElementById("juego");
-	ctx = canvas.getContext("2d");
-	PisoX = canvas.width/2 -100;
-	PisoY = canvas.height/2+30;
-	InicializarJSON();
-	AgregarEventoTeclado();
-	window.setInterval(function(){FrameLoop()},1000/50);
+var CorrerJuego = true;
+
+window.addEventListener("load", Inicio);
+
+function Inicio() {
+  canvas = document.getElementById("juego");
+  ctx = canvas.getContext("2d");
+  PisoX = canvas.width / 2 - 100;
+  PisoY = canvas.height / 2 + 30;
+  InicializarJSON();
+  AgregarEventos();
+  window.setInterval(function() {
+    FrameLoop()
+  }, 1000 / 50);
 }
-function FrameLoop(){
-	if(CorrerJuego){
-		DibujarFondo();
-		SaltoPersonaje();
-		DibujarPersonaje();
-		CrearArbol();
-		DibujarrArboles();
-		Puntuacion();
-		SubirVelocidadJuego();
-		RevisarColisiones();
-	}
+
+function FrameLoop() {
+  if (CorrerJuego) {
+    DibujarFondo();
+    SaltoPersonaje();
+    DibujarPersonaje();
+    CrearArbol();
+    DibujarrArboles();
+    Puntuacion();
+    SubirVelocidadJuego();
+    RevisarColisiones();
+  }
 }
-function AgregarEventoTeclado(){
-	window.onkeydown = function(evt){
-		switch(evt.keyCode){
-			case 38:
-				if(!BoolSaltar){
-					movSalto=-velocidadJuego;
-					BoolSaltar=true;
-				}
-			break;
-			case 32:
-				if(!BoolSaltar){
-					movSalto=-velocidadJuego;
-					BoolSaltar=true;
-				}
-			break;
-			case 13:
-				if(!CorrerJuego) RestablecerJuego();
-			break;
-		}
-	}
+
+function AgregarEventos() {
+  window.onkeydown = function(evt) {
+    switch (evt.keyCode) {
+      case 38:
+        if (!BoolSaltar) {
+          movSalto = -velocidadJuego;
+          BoolSaltar = true;
+        }
+        break;
+      case 32:
+        if (!BoolSaltar) {
+          movSalto = -velocidadJuego;
+          BoolSaltar = true;
+        }
+        break;
+      case 13:
+        if (!CorrerJuego) RestablecerJuego();
+        break;
+    }
+  }
+  canvas.addEventListener("touchstart", function() {
+    if (!BoolSaltar) {
+      movSalto = -velocidadJuego;
+      BoolSaltar = true;
+    }
+  });
 }
-function InicializarJSON(){
-	dinosaurio = {
-		x:PisoX,
-		y:PisoY,
-		width: 30,
-		height:38
-	}
-	nubes1 = {
-		x:0,
-		y:0,
-		width:canvas.width,
-		height:canvas.height/2-50
-	}
-	nubes2 = {
-		x:canvas.width,
-		y:0,
-		width:canvas.width,
-		height:canvas.height/2-50
-	}
+
+function InicializarJSON() {
+  dinosaurio = {
+    x: PisoX,
+    y: PisoY,
+    width: 30,
+    height: 38
+  }
+  nubes1 = {
+    x: 0,
+    y: 0,
+    width: canvas.width,
+    height: canvas.height / 2 - 50
+  }
+  nubes2 = {
+    x: canvas.width,
+    y: 0,
+    width: canvas.width,
+    height: canvas.height / 2 - 50
+  }
 }
 function CrearArbol(){
 	if(CrearSigArbol){
