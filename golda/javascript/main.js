@@ -43,32 +43,34 @@ function FrameLoop() {
 }
 
 function AgregarEventos() {
-  window.onkeydown = function(evt) {
-    switch (evt.keyCode) {
-      case 38:
-        if (!BoolSaltar) {
-          movSalto = -velocidadJuego;
-          BoolSaltar = true;
-        }
-        break;
-      case 32:
-        if (!BoolSaltar) {
-          movSalto = -velocidadJuego;
-          BoolSaltar = true;
-        }
-        break;
-      case 13:
-        if (!CorrerJuego) RestablecerJuego();
-        break;
+    window.onkeydown = function(evt) {
+      switch (evt.keyCode) {
+        case 38:
+          if (!BoolSaltar) {
+            movSalto = -velocidadJuego;
+            BoolSaltar = true;
+          }
+          break;
+        case 32:
+          if (!BoolSaltar) {
+            movSalto = -velocidadJuego;
+            BoolSaltar = true;
+          }
+          break;
+        case 13:
+          if (!CorrerJuego) RestablecerJuego();
+          break;
+      }
     }
+    canvas.addEventListener("touchstart", function(event) {
+      event.preventDefault(); // Evitar el comportamiento predeterminado del evento táctil
+      if (!BoolSaltar) {
+        movSalto = -velocidadJuego;
+        BoolSaltar = true;
+      }
+    });
   }
-  canvas.addEventListener("touchstart", function() {
-    if (!BoolSaltar) {
-      movSalto = -velocidadJuego;
-      BoolSaltar = true;
-    }
-  });
-}
+  
 
 function InicializarJSON() {
   dinosaurio = {
