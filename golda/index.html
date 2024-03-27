@@ -1,9 +1,42 @@
-<html>
-  <head>
-    <title>GOLDA</title>
-  </head>
-  <body>
-    <h1>GOLDA MMG</h1>
-    <button><a href="https://youtube.com">Goldear</a></button>
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GOLDA | Iniciar sesión</title>
+  <style>
+    * {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h2>Iniciar sesión</h2>
+  <form id="loginForm">
+    <label for="username">Nombre de usuario:</label><br>
+    <input type="text" id="username" name="username" required><br><br>
+    <label for="password">Contraseña:</label><br>
+    <input type="password" id="password" name="password" required><br><br>
+    <input type="submit" value="Iniciar sesión">
+  </form>
+
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function(event) {
+  event.preventDefault(); // Evitar que se envíe el formulario automáticamente
+  
+  // Obtener los valores de los campos de nombre de usuario y contraseña
+  var username = document.getElementById("username").value;
+  var password = document.getElementById("password").value;
+
+  // Verificar las credenciales (usuario: "golda", contraseña: "golda123")
+  if (username === 'golda' && password === 'golda123') {
+    // Redireccionar al usuario a la página de YouTube
+    window.location.href = "https://youtube.com";
+  } else {
+    // Mostrar un mensaje de error si las credenciales son incorrectas
+    alert("Credenciales incorrectas. Por favor, inténtelo de nuevo.");
+  }
+});
+  </script>
+</body>
 </html>
