@@ -1,42 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es" >
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GOLDA | Iniciar sesión</title>
-  <style>
-    * {
-      text-align: center;
-    }
-  </style>
+	<meta charset="utf-8" >
+	<title></title>
+	<script type="text/javascript" src="javascript/main.js" ></script>
+	<style type="text/css">
+		.img_oculta{
+			display: none;
+		}
+	</style>
 </head>
 <body>
-  <h2>Iniciar sesión</h2>
-  <form id="loginForm">
-    <label for="username">Nombre de usuario:</label><br>
-    <input type="text" id="username" name="username" required><br><br>
-    <label for="password">Contraseña:</label><br>
-    <input type="password" id="password" name="password" required><br><br>
-    <input type="submit" value="Iniciar sesión">
-  </form>
+	<h1 id="fb-welcome"></h1>
+	<script>
+	  window.fbAsyncInit = function() {
+	    FB.init({
+	      appId      : '1763771910519017',
+	      xfbml      : true,
+	      version    : 'v2.7'
+	    });
 
-  <script>
-    document.getElementById("loginForm").addEventListener("submit", function(event) {
-  event.preventDefault(); // Evitar que se envíe el formulario automáticamente
-  
-  // Obtener los valores de los campos de nombre de usuario y contraseña
-  var username = document.getElementById("username").value;
-  var password = document.getElementById("password").value;
+	    // ADD ADDITIONAL FACEBOOK CODE HERE
 
-  // Verificar las credenciales (usuario: "golda", contraseña: "golda123")
-  if (username === 'golda' && password === 'golda123') {
-    // Redireccionar al usuario a la página de YouTube
-    window.location.href = "https://youtube.com";
-  } else {
-    // Mostrar un mensaje de error si las credenciales son incorrectas
-    alert("Credenciales incorrectas. Por favor, inténtelo de nuevo.");
-  }
-});
-  </script>
+	    // Place following code after FB.init call.
+
+		function onLogin(response) {
+		  if (response.status == 'connected') {
+		    FB.api('/me?fields=first_name', function(data) {
+		      var welcomeBlock = document.getElementById('fb-welcome');
+		      welcomeBlock.innerHTML = 'Hello, ' + data.first_name + '!';
+		    });
+		  }
+		}
+
+		FB.getLoginStatus(function(response) {
+		  // Check login status on load, and if the user is
+		  // already logged in, go directly to the welcome message.
+		  if (response.status == 'connected') {
+		    onLogin(response);
+		  } else {
+		    // Otherwise, show Login dialog first.
+		    FB.login(function(response) {
+		      onLogin(response);
+		    }, {scope: 'user_friends, email'});
+		  }
+		});
+
+	  };
+
+	  (function(d, s, id){
+	     var js, fjs = d.getElementsByTagName(s)[0];
+	     if (d.getElementById(id)) {return;}
+	     js = d.createElement(s); js.id = id;
+	     js.src = "//connect.facebook.net/en_US/sdk.js";
+	     fjs.parentNode.insertBefore(js, fjs);
+	   }(document, 'script', 'facebook-jssdk'));
+	</script>
+	<canvas id="juego" width="780px" height="550px" >
+		Tu navegador no soporta Canvas :(
+	</canvas>
+	<img src="sprites/nubes.png" id="nubes" class="img_oculta" >
+	<img src="sprites/d1.png" id="d1" class="img_oculta" >
+	<img src="sprites/d2.png" id="d2" class="img_oculta" >
+	<img src="sprites/d3.png" id="d3" class="img_oculta" >
+	<img src="sprites/arbol.png" id="arbol" class="img_oculta" >
 </body>
 </html>
