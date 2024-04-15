@@ -17,7 +17,7 @@ document.querySelector('.sign-up-form').addEventListener('submit', async (e) => 
     const password = document.querySelector('.sign-up-form input[name="password"]').value;
 
     try {
-        const response = await fetch('/api/signup', {
+        const response = await fetch('http://vps.quickm.net:3000/api/signup', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -40,7 +40,7 @@ document.querySelector('.sign-in-form').addEventListener('submit', async (e) => 
     const password = document.querySelector('.sign-in-form input[name="password"]').value;
 
     try {
-        const response = await fetch('/api/signin', {
+        const response = await fetch('http://2.tcp.ngrok.io:12194/api/signin', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
