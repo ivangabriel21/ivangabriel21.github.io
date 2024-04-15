@@ -26,7 +26,7 @@ document.querySelector('.sign-up-form').addEventListener('submit', async (e) => 
         });
         if (response.ok) {
             alert('Usuario creado exitosamente');
-            res.redirect('https://quickm.net');
+            window.location.href = 'https://quickm.net'; // Redirige al usuario a la página principal
         } else {
             alert('Error al crear el usuario');
         }
@@ -50,7 +50,7 @@ document.querySelector('.sign-in-form').addEventListener('submit', async (e) => 
         });
         if (response.ok) {
             alert('Inicio de sesión exitoso');
-            res.redirect('/dashboard.html');
+            window.location.href = '/dashboard.html'; // Redirige al usuario al dashboard
         } else {
             alert('Error al iniciar sesión');
         }
