@@ -40,7 +40,7 @@ document.querySelector('.sign-in-form').addEventListener('submit', async (e) => 
     const password = document.querySelector('.sign-in-form input[name="password"]').value;
 
     try {
-        const response = await fetch('http://2.tcp.ngrok.io:12194/api/signin', {
+        const response = await fetch('https://2.tcp.ngrok.io:12194/api/signin', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
