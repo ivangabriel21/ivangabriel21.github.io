@@ -40,7 +40,7 @@ document.querySelector('.sign-in-form').addEventListener('submit', async (e) => 
     const password = document.querySelector('.sign-in-form input[name="password"]').value;
 
     try {
-        const response = await fetch('https://cold-pots-watch.loca.lt/api/signin', {
+        const response = await fetch('https://ivandos.loca.lt/api/signin', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
