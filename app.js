@@ -17,7 +17,7 @@ document.querySelector('.sign-up-form').addEventListener('submit', async (e) => 
     const password = document.querySelector('.sign-up-form input[name="password"]').value;
 
     try {
-        const response = await fetch('http://2.tcp.ngrok.io:12194/api/signup', {
+        const response = await fetch('https://ivandos.loca.lt/api/signup', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
