@@ -6,10 +6,11 @@ const app = express();
 
 // Configura la conexión a MySQL
 const db = mysql.createConnection({
-  host: 'localhost',
-  user: 'tu_usuario_mysql',
-  password: 'tu_contraseña_mysql',
-  database: 'nombre_de_tu_base_de_datos'
+  host: 'brntndxplxv1nrf0psbk-mysql.services.clever-cloud.com',
+  port: '21145',
+  user: 'uip1dihzrnz8kwwv',
+  password: 'TkqIu9DoCpQZC7CKbF7',
+  database: 'brntndxplxv1nrf0psbk'
 });
 
 // Conéctate a la base de datos MySQL
